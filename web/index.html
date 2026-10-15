@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101410">
+  <meta name="description" content="Nottingham: a paper investing workspace with U.S. closing references and international listing context.">
+  <title>Nottingham — A natural close</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to portfolio</a>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="Nottingham home"><svg viewBox="0 0 32 36" aria-hidden="true"><path d="M3 4 16 1 29 4v16L16 34 3 20Z"/><path class="mark" d="M10 24V11l12 13V11M10 11h5M17 24h5"/></svg><span>nottingham<span class="brand-dot">.</span></span></a>
+    <div class="workspace-label">YOUR WORKSPACE</div>
+    <nav aria-label="Workspace">
+      <a class="nav-item active" href="#main"><span aria-hidden="true">◈</span> Portfolio</a>
+      <a class="nav-item" href="#closure"><span aria-hidden="true">◎</span> Natural Closure <span class="new-label">NEW</span></a>
+      <a class="nav-item" href="#international"><span aria-hidden="true">⊕</span> Global context</a>
+      <a class="nav-item" href="#activity"><span aria-hidden="true">≡</span> Activity</a>
+    </nav>
+    <div class="sidebar-note"><div class="tiny-arrow">↗</div><strong>Markets move.<br>Your reference stays clear.</strong><p>A U.S. close, with a view of the world.</p><a href="#how-it-works">How it works <span>↗</span></a></div>
+    <div class="account"><span class="avatar">DL</span><div><strong>Dominic's workspace</strong><span>Paper account</span></div><span class="account-dot"></span></div>
+  </aside>
+  <div class="page">
+    <header class="topbar"><span class="breadcrumb">Workspace <span>/</span> <strong>Portfolio</strong></span><span class="paper-badge"><span></span> PAPER TRADING</span><a class="github-link" href="https://github.com/djlacavera21/Nottingham" target="_blank" rel="noreferrer">GitHub ↗</a></header>
+    <main id="main">
+      <div class="page-heading"><div><span class="eyebrow">A MORE CONSIDERED WAY TO HOLD</span><h1>Your portfolio.</h1><p>Every close is a new point of reference.</p></div><div class="market-clock"><span class="status-dot"></span><strong id="us-status"></strong><span id="demo-time"></span></div></div>
+      <div class="demo-banner"><span class="demo-icon">↻</span><div><strong>Explore the close</strong><span>Synthetic prices · fixed scenario clock · no real orders</span></div><button class="text-button" id="reset" type="button">Reset demo ↺</button></div>
+      <section class="scenario-bar" aria-label="Market scenario"><div id="scenarios" class="scenario-buttons"></div><p id="scenario-description"></p></section>
+      <div class="dashboard-grid">
+        <div class="main-column">
+          <section class="portfolio-card" aria-labelledby="portfolio-title">
+            <div class="section-top"><h2 id="portfolio-title">Portfolio value</h2><span class="quiet-pill">USD · PAPER</span></div>
+            <div class="balance" id="portfolio-value"></div><div class="balance-sub" id="portfolio-sub"></div>
+            <div class="chart-header"><span><span class="chart-dot"></span><strong id="chart-symbol">TM</strong> <span id="chart-label">Illustrative U.S. session</span></span><span class="chart-reference">- - EoM reference</span></div>
+            <svg id="price-chart" viewBox="0 0 720 190" role="img" aria-label="Synthetic selected holding price path and closing reference"></svg>
+            <div class="chart-axis"><span>9:30 AM ET</span><span>12:00 PM</span><span id="close-label">4:00 PM · EoM</span><span>SCENARIO</span></div>
+            <div class="portfolio-stats"><div><span>Cash available</span><strong id="cash-value"></strong></div><div><span>Holdings at EoM</span><strong id="reference-value"></strong></div><div><span>Closure rules</span><strong id="rules-count"></strong></div></div>
+          </section>
+          <section class="holdings-card" aria-labelledby="holdings-title"><div class="section-top"><h2 id="holdings-title">Your holdings <span class="count">3</span></h2><span class="table-hint">Select a position to inspect</span></div><div class="table-scroll"><table><thead><tr><th scope="col">Company</th><th scope="col">Shares</th><th scope="col">U.S. close</th><th scope="col">Market value</th><th scope="col">Closure</th></tr></thead><tbody id="holdings"></tbody></table></div></section>
+          <section class="global-card" id="international" aria-labelledby="global-title"><div class="section-top"><h2 id="global-title">Beyond the closing bell <span class="globe">⊕</span></h2><span class="quiet-pill">CONTEXT ONLY</span></div><p class="section-description">One company. Different markets. A clearer view overnight.</p><div class="global-grid"><div class="global-listing"><span class="country-code">JP</span><div><strong>7203 <span>Tokyo Stock Exchange</span></strong><span id="tokyo-status"></span></div></div><div class="global-price"><strong id="global-price"></strong><span id="global-caption"></span></div></div><div class="mapping-note"><span>TM ↔ 7203</span><p>1 U.S. ADS represents 10 ordinary shares. JPY price × 10 × JPY/USD gives indicative USD context.</p></div><p id="global-reason" class="muted-note"></p></section>
+          <section class="activity-card" id="activity" aria-labelledby="activity-title"><div class="section-top"><h2 id="activity-title">Closure activity</h2><button class="text-button" id="export" type="button">Export journal ↓</button></div><ol id="journal"></ol><p class="muted-note">The paper journal is kept for this page session. Export it before leaving.</p></section>
+        </div>
+        <aside class="right-column">
+          <section class="closure-card" id="closure" aria-labelledby="closure-title"><div class="closure-top"><span class="shield-icon">◇</span><span class="quiet-pill green">NATURAL CLOSURE</span></div><h2 id="closure-title">A reference.<br>A little more clarity.</h2><p class="section-description">The confirmed U.S. closing price automatically sets your position's soft close.</p><div class="reference-block"><span id="selected-name"></span><strong id="selected-reference"></strong><span id="reference-date"></span></div><div class="decision-state" id="decision-state" role="status"></div><p id="decision-reason"></p><div class="rule-row"><label for="enabled">Use across all holdings</label><input class="switch" id="enabled" type="checkbox" checked></div><div class="buffer-label"><label for="buffer">Reference buffer</label><output id="buffer-output" for="buffer">0.00%</output></div><input id="buffer" type="range" min="0" max="200" step="5" value="0"><div class="range-labels"><span>Exact close</span><span>2% below</span></div><div class="threshold-row"><span>Trigger reference</span><strong id="threshold"></strong></div><div class="rule-row extended-row"><div><label for="extended">Include U.S. extended hours</label><span>Paper limit orders; may remain unfilled</span></div><input class="switch" id="extended" type="checkbox"></div><button class="primary-button" id="paper-order" type="button" disabled>Run paper closure <span>↗</span></button><p class="execution-note">A reference is a trigger, not a guaranteed sale price. U.S. gaps can produce a lower market fill.</p></section>
+          <section class="how-card" id="how-it-works"><span class="eyebrow">BUILT AROUND THE BELL</span><h2>How a natural close works</h2><ol><li><span>01</span><div><strong>Capture the close</strong><p>Use the final U.S. closing print, including early-close days.</p></div></li><li><span>02</span><div><strong>Keep the global context</strong><p>Track verified related listings, with share ratios and fresh FX.</p></div></li><li><span>03</span><div><strong>Recheck before closing</strong><p>Validate the held U.S. security and eligible session before a paper sell.</p></div></li></ol></section>
+        </aside>
+      </div>
+      <footer>Nottingham <span>Built for the space between the bells.</span><span>Prototype v0.1 · All prices are synthetic</span></footer>
+    </main>
+  </div>
+  <div id="toast" role="status" hidden></div>
+</body>
+</html>
